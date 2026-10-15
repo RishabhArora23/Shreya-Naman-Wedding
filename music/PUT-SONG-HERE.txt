@@ -1,0 +1,6 @@
+Put your song file in this folder and name it exactly:
+
+    din-shagna-da.mp3
+
+(To use a different file name, change MUSIC_FILE in config.js.)
+Tip: keep it under ~5 MB (128 kbps mp3) so it starts quickly on phones.
