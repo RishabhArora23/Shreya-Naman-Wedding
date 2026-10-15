@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Shreya &amp; Naman · Wedding Invitation</title>
   <meta name="description" content="Shreya Arora & Naman Dora · 13–14 December 2026 · Jim Corbett">
-  <link rel="preload" href="fonts/parisienne-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/italianno-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/cormorant-garamond-latin-500-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="locked">
 <!--
   HOW TO EDIT
   ───────────
@@ -33,8 +33,10 @@
   <p class="t script sg" style="--y:243; --fs:32">Naman Dora</p>
   <svg class="t orn" style="--y:281; --x:64; --tw:81" viewBox="0 0 120 16"><use href="#orn"/></svg>
   <p class="t caps teal" style="--y:308; --fs:11; --lh:1.48">Two hearts &nbsp;✦&nbsp; one journey<br>forever</p>
-  <svg class="t chev" style="--y:588; --x:94; --tw:21" viewBox="0 0 24 22"><path d="M5 3l7 6 7-6M5 9l7 6 7-6M5 15l7 6 7-6"/></svg>
-  <p class="t caps cr" style="--y:608; --fs:9.6">Scroll to explore</p>
+  <div class="t scroll-cue" style="--y:596">
+    <svg class="chev" viewBox="0 0 24 22"><path d="M5 3l7 6 7-6M5 9l7 6 7-6M5 15l7 6 7-6"/></svg>
+    <p class="caps cr">Scroll to explore</p>
+  </div>
 </section>
 
 <!-- ===================== PAGE 2 · FAMILIES ===================== -->
@@ -66,9 +68,6 @@
   <p class="t num brown" style="--y:286; --fs:58">14</p>
   <p class="t caps brown" style="--y:331; --fs:13.5; --lh:1.45">December<br>2026</p>
   <p class="t caps cr" style="--y:420; --fs:10.8; --lh:1.45">A new chapter<br>begins</p>
-  <p class="t caps cr" style="--y:606; --fs:10.5">
-    <svg class="inline-ico" viewBox="0 0 24 24"><use href="#hand"/></svg>&nbsp; Click to reveal
-  </p>
 </section>
 
 <!-- ===================== PAGE 4 · COUNTDOWN ===================== -->
@@ -100,7 +99,6 @@
   <p class="t it teal" style="--y:193; --fs:16.6">An evening of henna &amp; melody</p>
   <p class="t caps teal" style="--y:238; --fs:14.1; --lh:1.32">Sunday, 13<sup>th</sup> December 2026<br>12:00 Noon onwards</p>
   <p class="t teal venue" style="--y:283; --fs:16.6"><svg class="pin" viewBox="0 0 24 24"><use href="#pin"/></svg>The Emerald Lawns</p>
-  <p class="t caps pill-text" style="--y:361; --x:64; --tw:117; --fs:11.3">View Details</p>
 </section>
 
 <!-- ===================== PAGE 7 · ENGAGEMENT & COCKTAIL ===================== -->
@@ -110,7 +108,6 @@
   <p class="t it cr" style="--y:235; --fs:17.9; --lh:1.12">A promise sealed,<br>a toast raised.</p>
   <p class="t caps cr" style="--y:283; --fs:14.1; --lh:1.28">Sunday, 13<sup>th</sup> December 2026<br>7:00 PM onwards</p>
   <p class="t cr venue" style="--y:325; --fs:17.3"><svg class="pin gold" viewBox="0 0 24 24"><use href="#pin"/></svg>The Starlit Banquet</p>
-  <p class="t caps pill-text" style="--y:370; --x:70; --tw:109; --fs:11.3">View Details</p>
 </section>
 
 <!-- ===================== PAGE 8 · HALDI ===================== -->
@@ -120,7 +117,6 @@
   <p class="t it teal" style="--y:236; --fs:17.3; --lh:1.16">Blessings of<br>turmeric &amp; gold</p>
   <p class="t caps teal" style="--y:288; --fs:14.1; --lh:1.32">Monday, 14<sup>th</sup> December 2026<br>9:00 AM onwards</p>
   <p class="t teal venue" style="--y:333; --fs:16.6"><svg class="pin" viewBox="0 0 24 24"><use href="#pin"/></svg>The Azure Poolside</p>
-  <p class="t caps pill-text" style="--y:373; --x:64; --tw:114; --fs:11.3">View Details</p>
 </section>
 
 <!-- ===================== PAGE 9 · THE ROYAL WEDDING ===================== -->
@@ -132,7 +128,6 @@
   <p class="t teal venue" style="--y:330; --fs:16.6"><svg class="pin" viewBox="0 0 24 24"><use href="#pin"/></svg>The Grand Regal Mandap</p>
   <p class="t teal" style="--y:414; --x:30; --tw:94; --fs:15.4; --lh:1.12">Varmala<br>4:00 PM</p>
   <p class="t teal" style="--y:414; --x:134; --tw:96; --fs:15.4; --lh:1.12">Pheras<br>5:00 PM</p>
-  <p class="t caps pill-text" style="--y:455; --x:73; --tw:112; --fs:11.3">View Details</p>
 </section>
 
 <!-- ===================== PAGE 10 · WARDROBE PLANNER ===================== -->
@@ -148,6 +143,8 @@
   <p class="t teal wl" style="--y:183; --x:186; --tw:55; --fs:10.1">Wedding</p>
   <p class="t teal wd" style="--y:214; --x:186; --tw:55; --fs:8.2">Traditional,<br>Royal &amp;<br>Timeless</p>
   <p class="t caps cr" style="--y:278; --x:76; --tw:124; --fs:9.2; --lh:1.65">View the colour theme<br>for each occasion</p>
+  <!-- Clickable button → opens the Wardrobe Planner PDF (replace wardrobe-planner.pdf to update it) -->
+  <a class="f link" href="wardrobe-planner.pdf" target="_blank" rel="noopener" style="--x:28; --y:259; --tw:186; --th:38" aria-label="View the colour theme for each occasion"></a>
 </section>
 
 <!-- ===================== PAGE 11 · RSVP (active) ===================== -->
@@ -179,59 +176,50 @@
   <p class="t script gd" style="--y:345; --fs:19">Thank you!</p>
 </section>
 
-<!-- ===================== PAGE 12 · WHICH EVENTS (active) ===================== -->
-<section class="panel" style="--w:178; --h:380; --bg:url(images/p12.jpg)">
-  <p class="t caps teal" style="--y:52; --fs:13.4; --lh:1.3">Which events<br>will you attend?</p>
-  <p class="t it teal" style="--y:86; --fs:9.6; --lh:1.3">Please let us know which celebrations<br>you will be joining.</p>
-
-  <form id="events-form">
-    <label class="f ev" style="--x:9; --y:100; --tw:165; --th:29"><input type="checkbox" name="events" value="Mehendi Soirée">
-      <span>Mehendi Soirée<small>(Sunday, 13 Dec - 12:00 PM)</small></span></label>
-    <label class="f ev" style="--x:9; --y:137; --tw:165; --th:29"><input type="checkbox" name="events" value="Engagement & Cocktail Gala">
-      <span>Engagement &amp; Cocktail Gala<small>(Sunday, 13 Dec - 7:00 PM)</small></span></label>
-    <label class="f ev" style="--x:9; --y:174; --tw:165; --th:29"><input type="checkbox" name="events" value="Haldi Ceremony">
-      <span>Haldi Ceremony<small>(Monday, 14 Dec - 9:00 AM)</small></span></label>
-    <label class="f ev" style="--x:9; --y:211; --tw:165; --th:29"><input type="checkbox" name="events" value="Royal Wedding">
-      <span>Royal Wedding<small>(Monday, 14 Dec - 4:00 PM)</small></span></label>
-
-    <p class="t caps teal" style="--y:261; --fs:9.9">Who is likely to cry first?</p>
-    <select class="f box light" style="--x:17; --y:276; --tw:147; --th:21" name="cry">
-      <option value="">Select your guess</option>
-      <option>Shreya</option>
-      <option>Naman</option>
-      <option>Shreya's Mom</option>
-      <option>Naman's Mom</option>
-      <option>The Dads</option>
-      <option>Everyone!</option>
-    </select>
-    <button class="f hit" type="submit" style="--x:42; --y:308; --tw:97; --th:21"><span>Submit Guess</span></button>
-    <p class="t form-msg teal" style="--y:338; --fs:9.5"></p>
-  </form>
-</section>
-
-<!-- ===================== PAGE 13 · A LITTLE NOTE (active) ===================== -->
+<!-- ===================== PAGE 12 · A LITTLE NOTE (active) ===================== -->
 <section class="panel" style="--w:181; --h:380; --bg:url(images/p13.jpg)">
   <h2 class="t title cr" style="--y:97; --fs:16.8; --lh:1.4">A Little Note<br>for Us</h2>
   <p class="t cr" style="--y:135; --fs:11.2; --lh:1.4">Leave us a note, a wish,<br>or a message for the couple.</p>
   <form id="note-form">
-    <textarea class="f box" style="--x:12; --y:159; --tw:160; --th:65" name="note" required placeholder="Write your message here..."></textarea>
+    <input class="f box note-name" style="--x:12; --y:159; --tw:160; --th:17" name="from" required placeholder="Your name(s) – e.g. Priya &amp; Rahul">
+    <textarea class="f box note-text" style="--x:12; --y:176; --tw:160; --th:48" name="note" required placeholder="Write your message here..."></textarea>
     <button class="f hit" type="submit" style="--x:36; --y:234; --tw:111; --th:24"><span>Submit Note</span></button>
     <p class="t form-msg cr" style="--y:268; --fs:9.5"></p>
   </form>
   <p class="t script gd tilt" style="--y:301; --fs:15.5">Your wishes<br>mean the world to us!</p>
 </section>
 
-<!-- ===================== PAGE 14 · VENUE ===================== -->
+<!-- ===================== PAGE 13 · VENUE ===================== -->
 <section class="panel" style="--w:194; --h:380; --bg:url(images/p14.jpg)">
   <p class="t caps teal" style="--y:142; --fs:8.2">All celebrations to be held at</p>
   <p class="t script sg" style="--y:174; --fs:20">Namaste Corbett<br>Resort &amp; Spa</p>
   <p class="t teal" style="--y:206; --fs:11.8">Jim Corbett &nbsp;•&nbsp; Uttarakhand</p>
   <p class="t teal" style="--y:247; --fs:12.1; --lh:1.45">Gracious check-In on<br>13th December 2026<br>from 11:00 AM onwards</p>
   <p class="t caps cr" style="--y:291; --x:46; --tw:126; --fs:7.4">Click to view the location</p>
-  <p class="t script sg" style="--y:334; --fs:15; Naman</p>
+  <!-- Clickable button → Google Maps. Change the link in config.js (MAPS_LINK) -->
+  <a class="f link" id="maps-link" href="#" target="_blank" rel="noopener" style="--x:22; --y:279; --tw:152; --th:24" aria-label="Open location in Google Maps"></a>
+  <p class="t script sg" style="--y:334; --fs:15; --lh:1.25">With love<br>Shreya &amp; Naman</p>
 </section>
 
 </main>
+
+<!-- ============ Opening button ("Tap to open") ============ -->
+<div id="opener" class="opener">
+  <button id="open-btn" class="seal" type="button" aria-label="Tap to open the invitation">
+    <span class="seal-ring"></span>
+    <span class="seal-core">
+      <span class="seal-mono">S<i>&amp;</i>N</span>
+    </span>
+  </button>
+  <p class="opener-label">Tap to open</p>
+</div>
+
+<!-- ============ Background music button ============ -->
+<button id="music-btn" class="music-btn" type="button" aria-label="Play or pause music" hidden>
+  <svg viewBox="0 0 24 24"><path d="M9 18V5l12-2v13" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="18" cy="16" r="3" fill="currentColor"/></svg>
+</button>
+<audio id="bgm" loop preload="auto"></audio>
+<canvas id="petals" aria-hidden="true"></canvas>
 
 <!-- ============ small drawings used above (no need to edit) ============ -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>

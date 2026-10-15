@@ -1,18 +1,21 @@
 # Shreya & Naman – Wedding Invitation Website
 
-A one-page scrolling invitation (14 pages). Only the RSVP forms are interactive;
-every other button is decoration. Responses land in a Google Sheet you own.
+A one-page scrolling invitation (13 pages) that opens with a "Tap to open" wax seal,
+plays music, and reveals each page as you scroll. Clickable: the seal, the RSVP and
+note forms, the Wardrobe Planner button (opens the PDF) and the location button (Google Maps). Responses land in a Google Sheet you own.
 
 ## What's in the folder
 
 | File / folder | What it is | Edit it? |
 |---|---|---|
 | `index.html` | All the text on every page | ✅ yes – names, dates, venues, wording |
-| `config.js` | Countdown date + Google Sheet link | ✅ yes |
+| `config.js` | Countdown date, Google Sheet link, song file, map link | ✅ yes |
 | `style.css` | Fonts, colours (colours are at the top) | optional |
 | `script.js` | Countdown + sending the forms | no |
 | `images/p1.jpg … p14.jpg` | The painted background of each page (text-free) | only to replace artwork |
-| `fonts/` | The fonts (Parisienne, Cormorant Garamond, Tiro Devanagari Hindi) | no |
+| `fonts/` | The fonts (Italianno, Cormorant Garamond, Tiro Devanagari Hindi) | no |
+| `music/` | Put `din-shagna-da.mp3` here for the background song | ✅ add your mp3 |
+| `wardrobe-planner.pdf` | Opens from the Wardrobe Planner button | replace with same name |
 | `google-apps-script.gs` | Code for the Google Sheet (Part 2) | only `NOTIFY_EMAIL` |
 
 ### How the pages work
@@ -73,8 +76,3 @@ Change the words between `>` and `<`. `--y` is how far down the line sits and
 - **Who-will-cry options / guest numbers:** in `index.html`, the `<option>` lines.
 - **Artwork:** upload a new picture with the **same name** into `images/` (it replaces the old one).
 - **Text colours:** top of `style.css` (`--script-green`, `--teal`, `--brown` …).
-
-### Making the location button work later (optional)
-The pills are part of the painted background, so nothing is clickable. To make the
-location pill open Google Maps, add this line just before `</section>` of PAGE 14:
-`<a class="f" style="--x:22; --y:280; --tw:154; --th:22" href="https://maps.google.com/?q=Namaste+Corbett+Resort" target="_blank"></a>`
