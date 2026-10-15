@@ -5,14 +5,25 @@ every other button is decoration. Responses land in a Google Sheet you own.
 
 ## What's in the folder
 
-| File | What it is | Edit it? |
+| File / folder | What it is | Edit it? |
 |---|---|---|
 | `index.html` | All the text on every page | ✅ yes – names, dates, venues, wording |
 | `config.js` | Countdown date + Google Sheet link | ✅ yes |
-| `style.css` | Colours, fonts, sizes (colours are at the top) | optional |
-| `script.js` | Countdown, flowers, form sending | no |
-| `images/` | Illustrations (lake, cocktails, haldi bowls, outfits…) | swap for higher-res versions if you like, same file names |
+| `style.css` | Fonts, colours (colours are at the top) | optional |
+| `script.js` | Countdown + sending the forms | no |
+| `images/p1.jpg … p14.jpg` | The painted background of each page (text-free) | only to replace artwork |
+| `fonts/` | The fonts (Parisienne, Cormorant Garamond, Tiro Devanagari Hindi) | no |
 | `google-apps-script.gs` | Code for the Google Sheet (Part 2) | only `NOTIFY_EMAIL` |
+
+### How the pages work
+Each page is a high-resolution painted background (`images/p1.jpg` = page 1, etc.)
+with the text placed on top. In `index.html` each line looks like:
+
+```html
+<p class="t script sg" style="--y:177; --fs:32">Shreya Arora</p>
+```
+Change the words between `>` and `<`. `--y` is how far down the line sits and
+`--fs` is the text size – if new text is longer and doesn't fit, lower `--fs` a little.
 
 ---
 
@@ -23,9 +34,8 @@ every other button is decoration. Responses land in a Google Sheet you own.
    - Name: e.g. `shreya-naman` (this becomes part of the link)
    - Set it to **Public**, then **Create repository**.
 3. On the new repo page click **"uploading an existing file"**.
-4. Drag in **everything in this folder** – `index.html`, `style.css`, `script.js`,
-   `config.js`, `README.md`, `google-apps-script.gs` **and the `images` folder**
-   (drag the folder itself so the images stay inside `images/`).
+4. Drag in **everything in this folder** – all the files **plus the `images` and `fonts`
+   folders** (drag the folders themselves so their files stay inside them).
 5. Click **Commit changes**.
 6. Go to **Settings → Pages** (left menu).
    - Source: **Deploy from a branch**
@@ -61,12 +71,10 @@ every other button is decoration. Responses land in a Google Sheet you own.
   updates within a minute or two.
 - **Countdown date:** `config.js` → `WEDDING_DATE`.
 - **Who-will-cry options / guest numbers:** in `index.html`, the `<option>` lines.
-- **Images:** upload a new file with the **same name** into `images/` (it replaces the old one).
-- **Colours:** top of `style.css` (`--green`, `--gold`, `--cream` …).
+- **Artwork:** upload a new picture with the **same name** into `images/` (it replaces the old one).
+- **Text colours:** top of `style.css` (`--script-green`, `--teal`, `--brown` …).
 
-### Making a decorative button work later (optional)
-The "View details" / "Click to view the location" pills are plain `<span>` tags so
-nothing is clickable. To turn the location one into a Google Maps link, change
-`<span class="pill green-pill">…</span>` to
-`<a class="pill green-pill" href="https://maps.google.com/?q=Namaste+Corbett+Resort" target="_blank">…</a>`.
-# Shreya-naman-wedding
+### Making the location button work later (optional)
+The pills are part of the painted background, so nothing is clickable. To make the
+location pill open Google Maps, add this line just before `</section>` of PAGE 14:
+`<a class="f" style="--x:22; --y:280; --tw:154; --th:22" href="https://maps.google.com/?q=Namaste+Corbett+Resort" target="_blank"></a>`
