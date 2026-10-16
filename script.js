@@ -108,9 +108,19 @@ const music = (function () {
   };
 })();
 
-/* ---------- 6. "Tap to open" ---------- */
+/* ---------- 6. "Open the invitation" seal ---------- */
 (function opener() {
   const box = document.getElementById("opener");
+  // place the seal just under the text on page 1, but always fully on screen
+  function place() {
+    if (!box.isConnected) return;
+    const p = document.querySelector(".panel").getBoundingClientRect();
+    const u = p.width / 209;
+    const want = p.top + 302 * u;
+    const max = innerHeight - box.offsetHeight - 14;
+    box.style.setProperty("--seal-top", Math.max(0, Math.min(want, max)) + "px");
+  }
+  place(); addEventListener("resize", place); document.fonts && document.fonts.ready.then(place);
   document.getElementById("open-btn").addEventListener("click", () => {
     music.play();
     box.classList.add("opening");
@@ -125,37 +135,81 @@ const music = (function () {
   });
 })();
 
-/* ---------- 7. Forms → Google Sheet ---------- */
+/* ---------- 7. Wardrobe viewer ---------- */
+(function lookbook() {
+  const pages = ["cover", "mehndi", "engagement", "haldi", "wedding", "after-party"].map(n => "wardrobe/" + n + ".jpg");
+  const box = document.getElementById("lookbook");
+  const img = document.getElementById("lb-img");
+  const count = document.getElementById("lb-count");
+  let i = 0;
+  function show(n) {
+    i = (n + pages.length) % pages.length;
+    img.classList.remove("ready");
+    img.onload = () => img.classList.add("ready");
+    img.src = pages[i];
+    count.textContent = (i + 1) + " / " + pages.length;
+    [pages[(i + 1) % pages.length], pages[(i + pages.length - 1) % pages.length]].forEach(s => { new Image().src = s; });
+  }
+  function open(n) { show(n); box.hidden = false; requestAnimationFrame(() => box.classList.add("on")); document.documentElement.style.overflow = "hidden"; }
+  function close() { box.classList.remove("on"); document.documentElement.style.overflow = ""; setTimeout(() => (box.hidden = true), 300); }
+  document.querySelectorAll("[data-page]").forEach(b => b.addEventListener("click", () => open(+b.dataset.page)));
+  box.querySelector(".lb-close").onclick = close;
+  box.querySelector(".lb-prev").onclick = () => show(i - 1);
+  box.querySelector(".lb-next").onclick = () => show(i + 1);
+  box.addEventListener("click", e => { if (e.target === box || e.target.classList.contains("lb-stage")) close(); });
+  addEventListener("keydown", e => {
+    if (box.hidden) return;
+    if (e.key === "Escape") close(); if (e.key === "ArrowRight") show(i + 1); if (e.key === "ArrowLeft") show(i - 1);
+  });
+  let x0 = null;
+  box.addEventListener("touchstart", e => { x0 = e.touches[0].clientX; }, { passive: true });
+  box.addEventListener("touchend", e => {
+    if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; x0 = null;
+    if (Math.abs(dx) > 50) show(i + (dx < 0 ? 1 : -1));
+  });
+})();
+
+/* ---------- 8. RSVP form → Google Form (or Apps Script) ---------- */
 (function forms() {
-  async function send(form, data, okText) {
-    const msg = form.querySelector(".form-msg");
-    const btn = form.querySelector("button");
-    if (!SHEET_URL) { msg.textContent = "Not connected yet (add SHEET_URL in config.js)."; return; }
+  // Turns the pre-filled Google Form link into a "submit" address + field ids.
+  function googleForm() {
+    if (!GOOGLE_FORM_LINK) return null;
+    try {
+      const u = new URL(GOOGLE_FORM_LINK);
+      const map = {};
+      u.searchParams.forEach((v, k) => { if (k.startsWith("entry.")) map[v.trim().toUpperCase()] = k; });
+      const action = u.origin + u.pathname.replace(/\/(viewform|edit)$/, "/formResponse");
+      return { action, map };
+    } catch (e) { return null; }
+  }
+  const gf = googleForm();
+
+  const rsvp = document.getElementById("rsvp-form");
+  const msg = rsvp.querySelector(".form-msg");
+  const btn = rsvp.querySelector("button");
+
+  rsvp.addEventListener("submit", async e => {
+    e.preventDefault();
+    const f = rsvp.elements;
+    const data = { NAME: f.name.value.trim(), ATTENDING: f.attending.value, GUESTS: f.guests.value, NOTE: f.note.value.trim() };
+    let url, body;
+    if (gf) {
+      body = new URLSearchParams();
+      for (const k in data) if (gf.map[k]) body.append(gf.map[k], data[k]);
+      url = gf.action;
+    } else if (SHEET_URL) {
+      body = new URLSearchParams({ form: "RSVP", name: data.NAME, attending: data.ATTENDING, guests: data.GUESTS, note: data.NOTE });
+      url = SHEET_URL;
+    } else { msg.textContent = "Not connected yet (add GOOGLE_FORM_LINK in config.js)."; return; }
+
     btn.disabled = true; msg.textContent = "Sending…";
     try {
-      await fetch(SHEET_URL, { method: "POST", mode: "no-cors", body: new URLSearchParams(data) });
-      msg.textContent = okText;
-      form.reset();
-    } catch (e) {
+      await fetch(url, { method: "POST", mode: "no-cors", body });
+      msg.textContent = data.ATTENDING === "No" ? "Thank you – you will be missed! ♥" : "Thank you! Your RSVP has been received ♥";
+      rsvp.reset();
+    } catch (err) {
       msg.textContent = "Something went wrong — please try again.";
     }
     btn.disabled = false;
-  }
-
-  const rsvp = document.getElementById("rsvp-form");
-  rsvp.addEventListener("submit", e => {
-    e.preventDefault();
-    const f = rsvp.elements;
-    send(rsvp, {
-      form: "RSVP", name: f.name.value, email: f.email.value, phone: "+91 " + f.phone.value,
-      attending: f.attending.value, guests: f.guests.value,
-    }, "Thank you! Your RSVP has been received.");
-  });
-
-  const note = document.getElementById("note-form");
-  note.addEventListener("submit", e => {
-    e.preventDefault();
-    const f = note.elements;
-    send(note, { form: "Note", name: f.from.value, note: f.note.value }, "Your note has been sent with love ♥");
   });
 })();

@@ -12,7 +12,7 @@ const SHEET_URL = "https://script.google.com/macros/s/AKfycbyyvE799tB0fgDnhfsXR8
 
 // 3) Background song. Put the mp3 file in the "music" folder with this exact name.
 //    Leave empty ("") for no music.
-const MUSIC_FILE = "music/din-shagna-da.mp3";
+const MUSIC_FILE = "music/din-shagna-da.mp4";
 
 // 4) Where "Click to view the location" goes.
 const MAPS_LINK = "https://www.google.com/maps/place/Namaste+Corbett+Resort/@29.2973829,79.2462911,17z/data=!3m1!4b1!4m9!3m8!1s0x390a730ee3ec2aab:0x23d1c4c6a9cbc5bf!5m2!4m1!1i2!8m2!3d29.2973829!4d79.2462911!16s%2Fg%2F11w2rn_t9m";
