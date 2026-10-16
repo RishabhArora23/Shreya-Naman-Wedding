@@ -244,8 +244,8 @@ select.box {
 .wcard:hover, .wcard:focus-visible { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(110, 70, 30, .22); outline: none; }
 .wcard:active { transform: scale(.97); }
 .wcard img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: calc(4 * var(--u)) calc(4 * var(--u)) calc(2 * var(--u)) calc(2 * var(--u)); border: 1px solid #e3cfa9; }
-.wcard b { font-weight: 700; font-size: calc(9.4 * var(--u)); line-height: 1.05; margin-top: calc(2 * var(--u)); min-height: 2.1em; display: flex; align-items: center; text-align: center; }
-.wcard .wdate { font-size: calc(7.4 * var(--u)); letter-spacing: .08em; text-transform: uppercase; color: var(--brown); margin-top: calc(-2 * var(--u)); }
+.wcard b { font-weight: 700; font-size: calc(9.4 * var(--u)); line-height: 1.12; margin-top: calc(2 * var(--u)); min-height: 2.3em; display: flex; align-items: center; text-align: center; }
+.wcard .wdate { font-size: calc(7.4 * var(--u)); letter-spacing: .08em; text-transform: uppercase; color: var(--brown); margin-top: calc(1 * var(--u)); }
 .wcard .wcode { font-style: italic; font-weight: 600; font-size: calc(7.8 * var(--u)); line-height: 1.15; text-align: center; min-height: 2.3em; }
 .sw { display: flex; flex-wrap: nowrap; justify-content: center; gap: calc(1.3 * var(--u)); margin: calc(1 * var(--u)) 0; max-width: 100%; }
 .sw i { width: calc(5.2 * var(--u)); height: calc(5.2 * var(--u)); border-radius: 50%; background: var(--c); box-shadow: 0 0 0 calc(.8 * var(--u)) #fff, 0 0 0 calc(1.3 * var(--u)) #d9bd8e; }
