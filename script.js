@@ -116,7 +116,7 @@ const music = (function () {
     if (!box.isConnected) return;
     const p = document.querySelector(".panel").getBoundingClientRect();
     const u = p.width / 209;
-    const want = p.top + 302 * u;
+    const want = p.top + 290 * u;
     const max = innerHeight - box.offsetHeight - 14;
     box.style.setProperty("--seal-top", Math.max(0, Math.min(want, max)) + "px");
   }
