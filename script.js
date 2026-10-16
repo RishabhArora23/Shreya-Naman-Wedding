@@ -184,32 +184,41 @@ const music = (function () {
   }
   const gf = googleForm();
 
-  const rsvp = document.getElementById("rsvp-form");
-  const msg = rsvp.querySelector(".form-msg");
-  const btn = rsvp.querySelector("button");
-
-  rsvp.addEventListener("submit", async e => {
-    e.preventDefault();
-    const f = rsvp.elements;
-    const data = { NAME: f.name.value.trim(), ATTENDING: f.attending.value, GUESTS: f.guests.value, NOTE: f.note.value.trim() };
+  async function send(form, data, okText) {
+    const msg = form.querySelector(".form-msg");
+    const btn = form.querySelector("button");
     let url, body;
     if (gf) {
       body = new URLSearchParams();
-      for (const k in data) if (gf.map[k]) body.append(gf.map[k], data[k]);
+      for (const k in data) if (gf.map[k] && data[k]) body.append(gf.map[k], data[k]);
       url = gf.action;
     } else if (SHEET_URL) {
-      body = new URLSearchParams({ form: "RSVP", name: data.NAME, attending: data.ATTENDING, guests: data.GUESTS, note: data.NOTE });
+      body = new URLSearchParams({ form: data.NOTE && !data.ATTENDING ? "Note" : "RSVP", name: data.NAME, attending: data.ATTENDING || "", guests: data.GUESTS || "", note: data.NOTE || "" });
       url = SHEET_URL;
     } else { msg.textContent = "Not connected yet (add GOOGLE_FORM_LINK in config.js)."; return; }
-
     btn.disabled = true; msg.textContent = "Sending…";
     try {
       await fetch(url, { method: "POST", mode: "no-cors", body });
-      msg.textContent = data.ATTENDING === "No" ? "Thank you – you will be missed! ♥" : "Thank you! Your RSVP has been received ♥";
-      rsvp.reset();
+      msg.textContent = okText;
+      form.reset();
     } catch (err) {
       msg.textContent = "Something went wrong — please try again.";
     }
     btn.disabled = false;
+  }
+
+  const rsvp = document.getElementById("rsvp-form");
+  rsvp.addEventListener("submit", e => {
+    e.preventDefault();
+    const f = rsvp.elements;
+    send(rsvp, { NAME: f.name.value.trim(), ATTENDING: f.attending.value, GUESTS: f.guests.value },
+      f.attending.value === "No" ? "Thank you – you will be missed! ♥" : "Thank you! Your RSVP has been received ♥");
+  });
+
+  const note = document.getElementById("note-form");
+  note.addEventListener("submit", e => {
+    e.preventDefault();
+    const f = note.elements;
+    send(note, { NAME: f.from.value.trim(), NOTE: f.note.value.trim() }, "Your note has been sent with love ♥");
   });
 })();

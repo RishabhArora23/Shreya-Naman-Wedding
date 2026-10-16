@@ -28,9 +28,9 @@
   <p class="t caps teal" style="--y:90; --fs:8.6; --lh:1.5">
     Together<br>with our families<br>we cordially invite you to<br>the wedding celebrations of
   </p>
-  <p class="t script sg" style="--y:146; --fs:30">Shreya Arora</p>
+  <p class="t script sg" style="--y:146; --fs:34">Shreya</p>
   <p class="t script sg" style="--y:177; --fs:28">&amp;</p>
-  <p class="t script sg" style="--y:207; --fs:30">Naman Dora</p>
+  <p class="t script sg" style="--y:207; --fs:34">Naman</p>
   <svg class="t orn" style="--y:237; --x:64; --tw:81" viewBox="0 0 120 16"><use href="#orn"/></svg>
   <p class="t caps brown datel" style="--y:256; --fs:10.6">13<sup>th</sup> – 14<sup>th</sup> December 2026</p>
   <p class="t caps teal" style="--y:281; --fs:8.6; --lh:1.5">Two hearts &nbsp;✦&nbsp; one journey<br>forever</p>
@@ -173,34 +173,44 @@
   <button class="f link" type="button" data-page="0" style="--x:28; --y:259; --tw:186; --th:38" aria-label="View the colour theme for each occasion"></button>
 </section>
 
-<!-- ===================== PAGE 11 · RSVP + NOTE (active) ===================== -->
+<!-- ===================== PAGE 11 · RSVP (active) ===================== -->
 <section class="panel" style="--w:169; --h:380; --bg:url(images/p11.jpg)">
   <h2 class="t title cr" style="--y:60; --fs:16.8">Kindly RSVP</h2>
   <p class="t cr" style="--y:87; --fs:11.8; --lh:1.35">We would be delighted<br>to have you with us!</p>
 
   <form id="rsvp-form" autocomplete="on">
-    <label class="f lbl" style="--x:10; --y:104">Full Name(s) *</label>
-    <input class="f box" style="--x:11; --y:118; --tw:145; --th:18" name="name" required placeholder="e.g. Priya &amp; Rahul Sharma">
-    <label class="f lbl" style="--x:10; --y:143">Will you be attending? *</label>
-    <label class="f radio" style="--x:9;   --y:159"><input type="radio" name="attending" value="Yes" required>Yes</label>
-    <label class="f radio" style="--x:62;  --y:159"><input type="radio" name="attending" value="Maybe">Maybe</label>
-    <label class="f radio" style="--x:120; --y:159"><input type="radio" name="attending" value="No">No</label>
-    <label class="f lbl" style="--x:10; --y:178">Number of Guests (incl. you) *</label>
-    <select class="f box" style="--x:11; --y:192; --tw:145; --th:18" name="guests" required>
+    <label class="f lbl" style="--x:10; --y:112">Full Name(s) *</label>
+    <input class="f box" style="--x:11; --y:127; --tw:145; --th:19" name="name" required placeholder="e.g. Priya &amp; Rahul Sharma">
+    <label class="f lbl" style="--x:10; --y:160">Will you be attending? *</label>
+    <label class="f radio" style="--x:14; --y:178"><input type="radio" name="attending" value="Yes" required>Yes, with joy!</label>
+    <label class="f radio" style="--x:92; --y:178"><input type="radio" name="attending" value="No">Sadly, no</label>
+    <label class="f lbl" style="--x:10; --y:210">Number of Guests (incl. you) *</label>
+    <select class="f box" style="--x:11; --y:225; --tw:145; --th:19" name="guests" required>
       <option value="">Select number</option>
       <option>1</option><option>2</option><option>3</option><option>4</option>
       <option>5</option><option>6</option><option>7</option><option>8</option>
     </select>
-    <label class="f lbl" style="--x:10; --y:217">A Little Note for Us <span class="opt">(optional)</span></label>
-    <textarea class="f box" style="--x:11; --y:231; --tw:145; --th:56" name="note" placeholder="A wish, a memory or a message for the couple…"></textarea>
     <button class="f hit" type="submit" style="--x:31; --y:300; --tw:103; --th:22"><span>Submit RSVP</span></button>
-    <p class="t form-msg cr" style="--y:327; --fs:9.5"></p>
+    <p class="t form-msg cr" style="--y:270; --fs:9.5"></p>
   </form>
   <p class="t script gd" style="--y:345; --fs:19">Thank you!</p>
 </section>
 
-<!-- ===================== PAGE 12 · VENUE ===================== -->
-<section class="panel" style="--w:194; --h:380; --bg:url(images/p14.jpg)">
+<!-- ===================== PAGE 12 · A LITTLE NOTE (active) ===================== -->
+<section class="panel" style="--w:181; --h:380; --bg:url(images/p13.jpg)">
+  <h2 class="t title cr" style="--y:97; --fs:16.8; --lh:1.4">A Little Note<br>for Us</h2>
+  <p class="t cr" style="--y:135; --fs:11.2; --lh:1.4">Leave us a note, a wish,<br>or a message for the couple.</p>
+  <form id="note-form">
+    <input class="f box note-name" style="--x:12; --y:159; --tw:160; --th:17" name="from" required placeholder="Your name(s) – e.g. Priya &amp; Rahul">
+    <textarea class="f box note-text" style="--x:12; --y:176; --tw:160; --th:48" name="note" required placeholder="Write your message here..."></textarea>
+    <button class="f hit" type="submit" style="--x:36; --y:234; --tw:111; --th:24"><span>Submit Note</span></button>
+    <p class="t form-msg cr" style="--y:268; --fs:9.5"></p>
+  </form>
+  <p class="t script gd tilt" style="--y:301; --fs:15.5">Your wishes<br>mean the world to us!</p>
+</section>
+
+<!-- ===================== PAGE 13 · VENUE ===================== -->
+<section class="panel" style="--w:194; --h:440; --bg:url(images/p14.jpg)">
   <p class="t caps teal" style="--y:142; --fs:8.2">All celebrations to be held at</p>
   <p class="t script sg" style="--y:174; --fs:20">Namaste Corbett<br>Resort &amp; Spa</p>
   <p class="t teal" style="--y:206; --fs:11.8">Jim Corbett &nbsp;•&nbsp; Uttarakhand</p>
@@ -208,7 +218,11 @@
   <p class="t caps cr" style="--y:291; --x:46; --tw:126; --fs:7.4">Click to view the location</p>
   <!-- Clickable button → Google Maps. Change the link in config.js (MAPS_LINK) -->
   <a class="f link" id="maps-link" href="#" target="_blank" rel="noopener" style="--x:22; --y:279; --tw:152; --th:24" aria-label="Open location in Google Maps"></a>
-  <p class="t script sg" style="--y:334; --fs:15; --lh:1.25">With love<br>Shreya &amp; Naman</p>
+  <!-- Closing note (each line is centred; sizes scale with the screen) -->
+  <p class="t caps teal" style="--y:319; --fs:7.1">A little note from the bride's brother</p>
+  <p class="t it brown wrap" style="--y:340; --x:16; --tw:162; --fs:12; --lh:1.25">“She's getting married,<br>but I'm still the favourite!”</p>
+  <p class="t teal wrap" style="--y:367; --x:20; --tw:154; --fs:10.2; --lh:1.25">Don't forget to join us<br>for the celebrations!</p>
+  <p class="t script sg" style="--y:392; --fs:17">Rishabh Arora</p>
 </section>
 
 </main>

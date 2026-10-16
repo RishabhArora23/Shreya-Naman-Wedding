@@ -280,3 +280,5 @@ button.link { border: 0; background: transparent; cursor: pointer; padding: 0; }
 .lb-bar a { color: #f2d394; text-transform: uppercase; font-size: 12px; border: 1px solid rgba(233,200,125,.7); padding: 5px 12px; border-radius: 999px; text-decoration: none; }
 
 .opt { font-weight: 500; font-style: italic; opacity: .8; }
+
+.t.wrap { white-space: normal; }
