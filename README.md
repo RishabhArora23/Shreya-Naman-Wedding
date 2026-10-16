@@ -1,8 +1,8 @@
 # Shreya & Naman – Wedding Invitation Website
 
-A one-page scrolling invitation (12 pages) that opens with a "Tap to open" wax seal,
+A one-page scrolling invitation (13 pages) that opens with a "Tap to open" wax seal,
 plays music, and reveals each page as you scroll. Clickable: the seal, the Wardrobe Planner cards (each opens
-that event's look), the RSVP form (with a note for the couple) and the location button (Google Maps).
+that event's look), the RSVP form, the "Little Note for Us" form and the location button (Google Maps).
 
 ## What's in the folder
 
