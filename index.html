@@ -25,14 +25,15 @@
 
 <!-- ===================== PAGE 1 · WELCOME ===================== -->
 <section class="panel" style="--w:209; --h:622; --bg:url(images/p1.jpg)">
-  <p class="t caps teal" style="--y:107; --fs:11; --lh:1.48">
+  <p class="t caps teal" style="--y:90; --fs:8.6; --lh:1.5">
     Together<br>with our families<br>we cordially invite you to<br>the wedding celebrations of
   </p>
-  <p class="t script sg" style="--y:177; --fs:32">Shreya Arora</p>
-  <p class="t script sg" style="--y:211; --fs:31">&amp;</p>
-  <p class="t script sg" style="--y:243; --fs:32">Naman Dora</p>
-  <svg class="t orn" style="--y:281; --x:64; --tw:81" viewBox="0 0 120 16"><use href="#orn"/></svg>
-  <p class="t caps teal" style="--y:308; --fs:11; --lh:1.48">Two hearts &nbsp;✦&nbsp; one journey<br>forever</p>
+  <p class="t script sg" style="--y:146; --fs:30">Shreya Arora</p>
+  <p class="t script sg" style="--y:177; --fs:28">&amp;</p>
+  <p class="t script sg" style="--y:207; --fs:30">Naman Dora</p>
+  <svg class="t orn" style="--y:237; --x:64; --tw:81" viewBox="0 0 120 16"><use href="#orn"/></svg>
+  <p class="t caps brown datel" style="--y:256; --fs:10.6">13<sup>th</sup> – 14<sup>th</sup> December 2026</p>
+  <p class="t caps teal" style="--y:281; --fs:8.6; --lh:1.5">Two hearts &nbsp;✦&nbsp; one journey<br>forever</p>
   <div class="t scroll-cue" style="--y:596">
     <svg class="chev" viewBox="0 0 24 22"><path d="M5 3l7 6 7-6M5 9l7 6 7-6M5 15l7 6 7-6"/></svg>
     <p class="caps cr">Scroll to explore</p>
@@ -131,65 +132,74 @@
 </section>
 
 <!-- ===================== PAGE 10 · WARDROBE PLANNER ===================== -->
+<!-- Each card opens that event's page from the Wardrobe Planner (images in the "wardrobe" folder).
+     data-page = which page opens: 0 cover, 1 mehndi, 2 engagement, 3 haldi, 4 wedding, 5 after-party -->
 <section class="panel" style="--w:242; --h:380; --bg:url(images/p10.jpg)">
   <h2 class="t title teal" style="--y:35; --fs:19.0">Wardrobe Planner</h2>
   <p class="t it teal" style="--y:57; --fs:14.0">Dress up for the celebrations!</p>
-  <p class="t teal wl" style="--y:183; --x:5;   --tw:58; --fs:10.1">Mehendi</p>
-  <p class="t teal wd" style="--y:208; --x:5;   --tw:58; --fs:8.2">Bright, Blooms &amp;<br>Festive Feels</p>
-  <p class="t teal wl" style="--y:189; --x:68;  --tw:56; --fs:10.1; --lh:1.35">Engagement &amp;<br>Cocktail</p>
-  <p class="t teal wd" style="--y:220; --x:68;  --tw:56; --fs:8.2">Chic, Glam &amp;<br>Celebratory</p>
-  <p class="t teal wl" style="--y:183; --x:128; --tw:53; --fs:10.1">Haldi</p>
-  <p class="t teal wd" style="--y:208; --x:128; --tw:53; --fs:8.2">Fresh, Light &amp;<br>Joyful</p>
-  <p class="t teal wl" style="--y:183; --x:186; --tw:55; --fs:10.1">Wedding</p>
-  <p class="t teal wd" style="--y:214; --x:186; --tw:55; --fs:8.2">Traditional,<br>Royal &amp;<br>Timeless</p>
+
+  <button class="f wcard" type="button" data-page="1" style="--x:6; --y:76; --tw:55; --th:156">
+    <img src="wardrobe/thumb-mehndi.jpg" alt="">
+    <b>Mehndi</b><small class="wdate">13 Dec</small>
+    <span class="wcode">Festive &amp;<br>Indo-Western</span>
+    <span class="sw"><i style="--c:#2f5e40"></i><i style="--c:#787928"></i><i style="--c:#808e6c"></i><i style="--c:#f4d99e"></i></span>
+    <em>View look ›</em>
+  </button>
+  <button class="f wcard" type="button" data-page="2" style="--x:64; --y:76; --tw:55; --th:156">
+    <img src="wardrobe/thumb-engagement.jpg" alt="">
+    <b>Engagement &amp; Cocktail</b><small class="wdate">13 Dec</small>
+    <span class="wcode">Evening<br>Glamour</span>
+    <span class="sw"><i style="--c:#bd805d"></i><i style="--c:#f0b8a0"></i><i style="--c:#6f1725"></i><i style="--c:#1f5438"></i><i style="--c:#dc8961"></i></span>
+    <em>View look ›</em>
+  </button>
+  <button class="f wcard" type="button" data-page="3" style="--x:122; --y:76; --tw:55; --th:156">
+    <img src="wardrobe/thumb-haldi.jpg" alt="">
+    <b>Haldi</b><small class="wdate">14 Dec</small>
+    <span class="wcode">Sunshine<br>Ethnic Vibes</span>
+    <span class="sw"><i style="--c:#fddc50"></i><i style="--c:#fdb204"></i><i style="--c:#d66c01"></i><i style="--c:#fcbd34"></i><i style="--c:#f8d154"></i></span>
+    <em>View look ›</em>
+  </button>
+  <button class="f wcard" type="button" data-page="4" style="--x:180; --y:76; --tw:55; --th:156">
+    <img src="wardrobe/thumb-wedding.jpg" alt="">
+    <b>Wedding</b><small class="wdate">14 Dec</small>
+    <span class="wcode">Festive Indian<br>Elegance</span>
+    <span class="sw"><i style="--c:#eacfab"></i><i style="--c:#e0b26d"></i><i style="--c:#e39b88"></i><i style="--c:#eda570"></i><i style="--c:#debede"></i><i style="--c:#b8dec7"></i><i style="--c:#b6d1ec"></i></span>
+    <em>View look ›</em>
+  </button>
+
+  <p class="t it teal" style="--y:242; --fs:9.5">Tap a look to see the details</p>
   <p class="t caps cr" style="--y:278; --x:76; --tw:124; --fs:9.2; --lh:1.65">View the colour theme<br>for each occasion</p>
-  <!-- Clickable button → opens the Wardrobe Planner PDF (replace wardrobe-planner.pdf to update it) -->
-  <a class="f link" href="wardrobe-planner.pdf" target="_blank" rel="noopener" style="--x:28; --y:259; --tw:186; --th:38" aria-label="View the colour theme for each occasion"></a>
+  <!-- Clickable button → opens the whole Wardrobe Planner from the cover -->
+  <button class="f link" type="button" data-page="0" style="--x:28; --y:259; --tw:186; --th:38" aria-label="View the colour theme for each occasion"></button>
 </section>
 
-<!-- ===================== PAGE 11 · RSVP (active) ===================== -->
+<!-- ===================== PAGE 11 · RSVP + NOTE (active) ===================== -->
 <section class="panel" style="--w:169; --h:380; --bg:url(images/p11.jpg)">
   <h2 class="t title cr" style="--y:60; --fs:16.8">Kindly RSVP</h2>
   <p class="t cr" style="--y:87; --fs:11.8; --lh:1.35">We would be delighted<br>to have you with us!</p>
 
   <form id="rsvp-form" autocomplete="on">
-    <label class="f lbl" style="--x:10; --y:107">Full Name *</label>
-    <input class="f box" style="--x:11; --y:122; --tw:145; --th:18" name="name" required placeholder="Enter your name">
-    <label class="f lbl" style="--x:10; --y:142">Email Address *</label>
-    <input class="f box" style="--x:11; --y:157; --tw:145; --th:18" name="email" type="email" required placeholder="Enter your email">
-    <label class="f lbl" style="--x:10; --y:177">Mobile Number *</label>
-    <span class="f box code" style="--x:11; --y:192; --tw:28; --th:18">+91</span>
-    <input class="f box" style="--x:41; --y:192; --tw:115; --th:18" name="phone" type="tel" required placeholder="Enter your number">
-    <label class="f lbl" style="--x:10; --y:214">Will you be attending? *</label>
-    <label class="f radio" style="--x:9;   --y:232"><input type="radio" name="attending" value="Yes" required>Yes</label>
-    <label class="f radio" style="--x:62;  --y:232"><input type="radio" name="attending" value="Maybe">Maybe</label>
-    <label class="f radio" style="--x:120; --y:232"><input type="radio" name="attending" value="No">No</label>
-    <label class="f lbl" style="--x:10; --y:250; --lh:1.25">Number of Guests<br><b>(including you) *</b></label>
-    <select class="f box" style="--x:11; --y:276; --tw:145; --th:18" name="guests" required>
-      <option value="">Enter number</option>
+    <label class="f lbl" style="--x:10; --y:104">Full Name(s) *</label>
+    <input class="f box" style="--x:11; --y:118; --tw:145; --th:18" name="name" required placeholder="e.g. Priya &amp; Rahul Sharma">
+    <label class="f lbl" style="--x:10; --y:143">Will you be attending? *</label>
+    <label class="f radio" style="--x:9;   --y:159"><input type="radio" name="attending" value="Yes" required>Yes</label>
+    <label class="f radio" style="--x:62;  --y:159"><input type="radio" name="attending" value="Maybe">Maybe</label>
+    <label class="f radio" style="--x:120; --y:159"><input type="radio" name="attending" value="No">No</label>
+    <label class="f lbl" style="--x:10; --y:178">Number of Guests (incl. you) *</label>
+    <select class="f box" style="--x:11; --y:192; --tw:145; --th:18" name="guests" required>
+      <option value="">Select number</option>
       <option>1</option><option>2</option><option>3</option><option>4</option>
       <option>5</option><option>6</option><option>7</option><option>8</option>
     </select>
+    <label class="f lbl" style="--x:10; --y:217">A Little Note for Us <span class="opt">(optional)</span></label>
+    <textarea class="f box" style="--x:11; --y:231; --tw:145; --th:56" name="note" placeholder="A wish, a memory or a message for the couple…"></textarea>
     <button class="f hit" type="submit" style="--x:31; --y:300; --tw:103; --th:22"><span>Submit RSVP</span></button>
     <p class="t form-msg cr" style="--y:327; --fs:9.5"></p>
   </form>
   <p class="t script gd" style="--y:345; --fs:19">Thank you!</p>
 </section>
 
-<!-- ===================== PAGE 12 · A LITTLE NOTE (active) ===================== -->
-<section class="panel" style="--w:181; --h:380; --bg:url(images/p13.jpg)">
-  <h2 class="t title cr" style="--y:97; --fs:16.8; --lh:1.4">A Little Note<br>for Us</h2>
-  <p class="t cr" style="--y:135; --fs:11.2; --lh:1.4">Leave us a note, a wish,<br>or a message for the couple.</p>
-  <form id="note-form">
-    <input class="f box note-name" style="--x:12; --y:159; --tw:160; --th:17" name="from" required placeholder="Your name(s) – e.g. Priya &amp; Rahul">
-    <textarea class="f box note-text" style="--x:12; --y:176; --tw:160; --th:48" name="note" required placeholder="Write your message here..."></textarea>
-    <button class="f hit" type="submit" style="--x:36; --y:234; --tw:111; --th:24"><span>Submit Note</span></button>
-    <p class="t form-msg cr" style="--y:268; --fs:9.5"></p>
-  </form>
-  <p class="t script gd tilt" style="--y:301; --fs:15.5">Your wishes<br>mean the world to us!</p>
-</section>
-
-<!-- ===================== PAGE 13 · VENUE ===================== -->
+<!-- ===================== PAGE 12 · VENUE ===================== -->
 <section class="panel" style="--w:194; --h:380; --bg:url(images/p14.jpg)">
   <p class="t caps teal" style="--y:142; --fs:8.2">All celebrations to be held at</p>
   <p class="t script sg" style="--y:174; --fs:20">Namaste Corbett<br>Resort &amp; Spa</p>
@@ -205,13 +215,22 @@
 
 <!-- ============ Opening button ("Tap to open") ============ -->
 <div id="opener" class="opener">
-  <button id="open-btn" class="seal" type="button" aria-label="Tap to open the invitation">
+  <button id="open-btn" class="seal" type="button" aria-label="Open the invitation">
     <span class="seal-ring"></span>
     <span class="seal-core">
       <span class="seal-mono">S<i>&amp;</i>N</span>
     </span>
   </button>
-  <p class="opener-label">Tap to open</p>
+  <p class="opener-label">Open the Invitation</p>
+</div>
+
+<!-- ============ Wardrobe viewer (opens when a wardrobe card is tapped) ============ -->
+<div id="lookbook" class="lookbook" hidden role="dialog" aria-label="Wardrobe Planner">
+  <button class="lb-close" type="button" aria-label="Close">×</button>
+  <button class="lb-nav lb-prev" type="button" aria-label="Previous">‹</button>
+  <div class="lb-stage"><img id="lb-img" alt=""></div>
+  <button class="lb-nav lb-next" type="button" aria-label="Next">›</button>
+  <div class="lb-bar"><span id="lb-count"></span><a href="wardrobe-planner.pdf" target="_blank" rel="noopener">Download PDF</a></div>
 </div>
 
 <!-- ============ Background music button ============ -->

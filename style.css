@@ -174,13 +174,13 @@ select.box {
 
 /* ================= OPENING SEAL ================= */
 .opener {
-  position: fixed; left: 50%; bottom: max(5vh, 28px); transform: translateX(-50%); z-index: 50;
+  position: fixed; left: 50%; top: var(--seal-top, 60vh); transform: translateX(-50%); z-index: 50;
   display: flex; flex-direction: column; align-items: center; gap: 10px;
   animation: rise 1.2s cubic-bezier(.2,.7,.2,1) 1.4s both;
 }
 @keyframes rise { from { opacity: 0; transform: translate(-50%, 30px); } to { opacity: 1; transform: translate(-50%, 0); } }
 .seal {
-  position: relative; width: 92px; height: 92px; border: 0; border-radius: 50%; cursor: pointer; padding: 0;
+  position: relative; width: 80px; height: 80px; border: 0; border-radius: 50%; cursor: pointer; padding: 0;
   background: radial-gradient(circle at 35% 30%, #a1352f, #7a1d1b 55%, #5b1212);
   box-shadow: 0 8px 24px rgba(70,20,10,.45), inset 0 2px 6px rgba(255,200,180,.35), inset 0 -4px 10px rgba(0,0,0,.35);
   animation: pulse 2.2s ease-in-out infinite;
@@ -191,7 +191,7 @@ select.box {
 }
 .seal-ring { position: absolute; inset: 9px; border-radius: 50%; border: 1.5px solid rgba(240,200,140,.75); box-shadow: inset 0 0 0 4px rgba(0,0,0,.08); }
 .seal-core { position: absolute; inset: 0; display: grid; place-items: center; }
-.seal-mono { font-family: "Italianno", cursive; font-size: 44px; line-height: 1; color: #f2d394; text-shadow: 0 1px 0 rgba(0,0,0,.35); letter-spacing: -1px; }
+.seal-mono { font-family: "Italianno", cursive; font-size: 40px; line-height: 1; color: #f2d394; text-shadow: 0 1px 0 rgba(0,0,0,.35); letter-spacing: -1px; }
 .seal-mono i { font-style: normal; font-size: 30px; margin: 0 2px; }
 .seal::after { /* outer glow ring */
   content: ""; position: absolute; inset: -14px; border-radius: 50%; border: 1px solid rgba(217,184,116,.8);
@@ -200,7 +200,7 @@ select.box {
 @keyframes pulse { 50% { transform: scale(1.05); } }
 @keyframes ripple { from { opacity: .9; transform: scale(.9); } to { opacity: 0; transform: scale(1.35); } }
 .opener-label {
-  font-family: "Cormorant", serif; font-weight: 600; font-size: 15px; letter-spacing: .28em; text-transform: uppercase;
+  font-family: "Cormorant", serif; font-weight: 600; font-size: 13px; letter-spacing: .22em; text-transform: uppercase; white-space: nowrap;
   color: #fff6e6; text-shadow: 0 1px 6px rgba(0,0,0,.6);
   padding: 5px 16px; border-radius: 999px; background: rgba(40,20,10,.35); backdrop-filter: blur(3px);
 }
@@ -229,3 +229,54 @@ select.box {
   .seal, .seal::after, .chev { animation: none; }
 }
 .music-btn[hidden] { display: none; }
+
+.datel { letter-spacing: .08em; font-weight: 700; }
+
+/* ================= WARDROBE CARDS ================= */
+.wcard {
+  display: flex; flex-direction: column; align-items: center; gap: calc(2 * var(--u));
+  padding: calc(3 * var(--u)) calc(3 * var(--u)) calc(4 * var(--u));
+  border: 1px solid #d9bd8e; border-radius: calc(6 * var(--u));
+  background: rgba(255, 252, 245, .72); cursor: pointer; font-family: inherit; color: var(--teal);
+  box-shadow: 0 2px 8px rgba(110, 70, 30, .1);
+  transition: transform .25s, box-shadow .25s, opacity 1s, translate 1s, filter 1s;
+}
+.wcard:hover, .wcard:focus-visible { transform: translateY(-3px); box-shadow: 0 6px 16px rgba(110, 70, 30, .22); outline: none; }
+.wcard:active { transform: scale(.97); }
+.wcard img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: calc(4 * var(--u)) calc(4 * var(--u)) calc(2 * var(--u)) calc(2 * var(--u)); border: 1px solid #e3cfa9; }
+.wcard b { font-weight: 700; font-size: calc(9.4 * var(--u)); line-height: 1.05; margin-top: calc(2 * var(--u)); min-height: 2.1em; display: flex; align-items: center; text-align: center; }
+.wcard .wdate { font-size: calc(7.4 * var(--u)); letter-spacing: .08em; text-transform: uppercase; color: var(--brown); margin-top: calc(-2 * var(--u)); }
+.wcard .wcode { font-style: italic; font-weight: 600; font-size: calc(7.8 * var(--u)); line-height: 1.15; text-align: center; min-height: 2.3em; }
+.sw { display: flex; flex-wrap: nowrap; justify-content: center; gap: calc(1.3 * var(--u)); margin: calc(1 * var(--u)) 0; max-width: 100%; }
+.sw i { width: calc(5.2 * var(--u)); height: calc(5.2 * var(--u)); border-radius: 50%; background: var(--c); box-shadow: 0 0 0 calc(.8 * var(--u)) #fff, 0 0 0 calc(1.3 * var(--u)) #d9bd8e; }
+.wcard em { margin-top: auto; font-style: normal; font-weight: 700; font-size: calc(7.2 * var(--u)); letter-spacing: .06em; text-transform: uppercase; color: #8a5a2e; }
+button.link { border: 0; background: transparent; cursor: pointer; padding: 0; }
+
+/* ================= LOOKBOOK VIEWER ================= */
+.lookbook {
+  position: fixed; inset: 0; z-index: 60; display: grid; place-items: center;
+  background: rgba(20, 12, 6, .82); backdrop-filter: blur(6px);
+  opacity: 0; transition: opacity .3s;
+}
+.lookbook[hidden] { display: none; }
+.lookbook.on { opacity: 1; }
+.lb-stage { width: 100%; height: 100%; display: grid; place-items: center; padding: 56px 12px 64px; }
+#lb-img {
+  max-width: min(100%, 560px); max-height: 100%; border-radius: 10px; box-shadow: 0 12px 40px rgba(0,0,0,.5);
+  opacity: 0; transform: scale(.97); transition: opacity .35s, transform .35s;
+}
+#lb-img.ready { opacity: 1; transform: none; }
+.lb-close, .lb-nav {
+  position: absolute; z-index: 2; border: 1px solid rgba(233,200,125,.7); color: #f2d394; cursor: pointer;
+  background: rgba(15, 52, 32, .85); border-radius: 50%; display: grid; place-items: center; line-height: 1;
+}
+.lb-close { top: 12px; right: 12px; width: 40px; height: 40px; font-size: 28px; }
+.lb-nav { top: 50%; translate: 0 -50%; width: 42px; height: 42px; font-size: 30px; padding-bottom: 4px; }
+.lb-prev { left: 10px; } .lb-next { right: 10px; }
+.lb-bar {
+  position: absolute; bottom: 16px; left: 50%; translate: -50% 0; display: flex; gap: 16px; align-items: center;
+  font: 600 14px "Cormorant", serif; letter-spacing: .1em; color: #f6e7cc;
+}
+.lb-bar a { color: #f2d394; text-transform: uppercase; font-size: 12px; border: 1px solid rgba(233,200,125,.7); padding: 5px 12px; border-radius: 999px; text-decoration: none; }
+
+.opt { font-weight: 500; font-style: italic; opacity: .8; }

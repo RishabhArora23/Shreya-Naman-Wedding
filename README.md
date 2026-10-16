@@ -1,22 +1,22 @@
 # Shreya & Naman – Wedding Invitation Website
 
-A one-page scrolling invitation (13 pages) that opens with a "Tap to open" wax seal,
-plays music, and reveals each page as you scroll. Clickable: the seal, the RSVP and
-note forms, the Wardrobe Planner button (opens the PDF) and the location button (Google Maps). Responses land in a Google Sheet you own.
+A one-page scrolling invitation (12 pages) that opens with a "Tap to open" wax seal,
+plays music, and reveals each page as you scroll. Clickable: the seal, the Wardrobe Planner cards (each opens
+that event's look), the RSVP form (with a note for the couple) and the location button (Google Maps).
 
 ## What's in the folder
 
 | File / folder | What it is | Edit it? |
 |---|---|---|
 | `index.html` | All the text on every page | ✅ yes – names, dates, venues, wording |
-| `config.js` | Countdown date, Google Sheet link, song file, map link | ✅ yes |
+| `config.js` | Countdown date, Google Form link, song file, map link | ✅ yes |
 | `style.css` | Fonts, colours (colours are at the top) | optional |
 | `script.js` | Countdown + sending the forms | no |
 | `images/p1.jpg … p14.jpg` | The painted background of each page (text-free) | only to replace artwork |
 | `fonts/` | The fonts (Italianno, Cormorant Garamond, Tiro Devanagari Hindi) | no |
 | `music/` | Put `din-shagna-da.mp3` here for the background song | ✅ add your mp3 |
-| `wardrobe-planner.pdf` | Opens from the Wardrobe Planner button | replace with same name |
-| `google-apps-script.gs` | Code for the Google Sheet (Part 2) | only `NOTIFY_EMAIL` |
+| `wardrobe/` | Wardrobe Planner pages (cover, mehndi, engagement, haldi, wedding, after-party) + card thumbnails | replace with same names |
+| `wardrobe-planner.pdf` | The full PDF ("Download PDF" in the viewer) | replace with same name |
 
 ### How the pages work
 Each page is a high-resolution painted background (`images/p1.jpg` = page 1, etc.)
@@ -46,26 +46,23 @@ Change the words between `>` and `<`. `--y` is how far down the line sits and
 7. Wait 1–2 minutes and refresh. Your link appears at the top:
    `https://YOUR-USERNAME.github.io/shreya-naman/`
 
-## Part 2 – Receive the RSVPs in a Google Sheet
+## Part 2 – Receive RSVPs with a Google Form (recommended)
 
-1. Go to **sheets.google.com** → create a blank sheet (name it "Wedding RSVPs").
-2. **Extensions → Apps Script**. Delete what's there, paste the whole of
-   `google-apps-script.gs`, click 💾 Save.
-   (Optional: put your email in `NOTIFY_EMAIL` to get an email per response.)
-3. Click **Deploy → New deployment** → gear icon ⚙ → **Web app**.
-   - Execute as: **Me**
-   - Who has access: **Anyone**
-   - **Deploy** → approve the permissions (choose your account → *Advanced* →
-     *Go to … (unsafe)* → *Allow*; this is normal for your own script).
-4. Copy the **Web app URL** (ends in `/exec`).
-5. On GitHub open `config.js` → ✏️ pencil icon → paste the URL between the quotes:
-   `const SHEET_URL = "https://script.google.com/macros/s/.../exec";`
-   → **Commit changes**.
-6. Open your site, submit a test RSVP – a new row appears in the
-   **Responses** tab of your sheet. Delete the test row afterwards.
+The RSVP form on the website quietly sends each answer into a Google Form you own.
+You see every response in Google Forms (and in a Google Sheet if you like).
 
-> If you change the Apps Script later, use **Deploy → Manage deployments → ✏️ → Version: New version**
-> so the same URL keeps working.
+1. Go to **forms.google.com** → **Blank form**. Name it e.g. "Shreya & Naman RSVP".
+2. Add **4 questions**, all of type **Short answer** (the 4th can be **Paragraph**):
+   `Name`, `Attending`, `Guests`, `Note`. Leave them **not required**.
+3. **Settings** tab → **Responses**: make sure *Collect email addresses* is **Off**
+   and *Limit to 1 response* is **Off** (these force a Google sign-in and block the website).
+4. Back in the form, click **⋮** (top right) → **Get pre-filled link**.
+   In the 4 boxes type exactly: **NAME**, **ATTENDING**, **GUESTS**, **NOTE** →
+   **Get link** → **Copy link**.
+5. Open `config.js` and paste it:
+   `const GOOGLE_FORM_LINK = "https://docs.google.com/forms/d/e/…/viewform?usp=pp_url&entry…";`
+6. Push to GitHub, open the live site, submit a test RSVP → it appears under the form's
+   **Responses** tab. Click **Link to Sheets** there to also get a spreadsheet.
 
 ## Part 3 – Editing later
 
@@ -73,6 +70,6 @@ Change the words between `>` and `<`. `--y` is how far down the line sits and
   `PAGE 6`, etc.) → change the words → **Commit changes**. The live site
   updates within a minute or two.
 - **Countdown date:** `config.js` → `WEDDING_DATE`.
-- **Who-will-cry options / guest numbers:** in `index.html`, the `<option>` lines.
+- **Guest numbers:** in `index.html`, the `<option>` lines.
 - **Artwork:** upload a new picture with the **same name** into `images/` (it replaces the old one).
 - **Text colours:** top of `style.css` (`--script-green`, `--teal`, `--brown` …).
